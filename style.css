@@ -1,0 +1,28 @@
+/* Kalp animasyonu */
+@keyframes kalpAnimasyonu {
+  0% {
+    opacity: 1;
+    transform: translateY(100vh); /* Başlangıçta ekranın altından başlasın */
+  }
+  100% {
+    opacity: 0; /* Soluklaşıp kaybolacak */
+    transform: translateY(-50px); /* Ekranın üst kısmına doğru kayacak */
+  }
+}
+
+.kalp {
+  position: absolute;
+  font-size: 30px;
+  color: pink;
+  animation: kalpAnimasyonu 5s linear infinite; /* Kalp animasyonu */
+  pointer-events: none; /* Kalp animasyonları tıklanabilir olmamalı */
+  animation-timing-function: linear;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff0f5;
+  overflow: hidden; /* Sayfa kaydırmasını engeller */
+  height: 100vh;
+}

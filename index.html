@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Aşkım Sana Özel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5;
+      overflow: hidden; /* Sayfa kaydırmasını engelledik */
+    }
+
+    /* Kalp animasyonu */
+    .kalp {
+      position: absolute;
+      color: #ff1493;
+      font-size: 30px;
+      animation: kalpAnimasyonu 2s infinite ease-in-out;
+    }
+
+    @keyframes kalpAnimasyonu {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-50px) scale(1.5);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Şifre ekranı */
+    #sifreKutu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      padding: 20px;
+      background-color: #fff0f5;
+      z-index: 2;
+    }
+
+    input[type="password"] {
+      padding: 12px;
+      font-size: 18px;
+      margin-bottom: 12px;
+      width: 80%;
+      max-width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: pink;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #hata {
+      color: red;
+      margin-top: 10px;
+    }
+
+    /* İçerik */
+    #icerik {
+      display: none;
+      text-align: center;
+      z-index: 0;
+      position: absolute;
+      top: 0; /* İçeriğin başlangıç noktası sayfanın üstü */
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: auto; /* İçeriğin kaymasını sağlıyor */
+      padding: 20px;
+    }
+
+    .galeri {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .foto-kutu {
+      margin: 10px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .foto-kutu img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .yazi {
+      margin-top: 10px;
+      font-size: 16px;
+      font-style: italic;
+      color: #ff69b4;
+    }
+
+    /* Müzik Butonu */
+    #muzikButon {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: pink;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Şifre ekranı -->
+  <div id="sifreKutu">
+    <h2>Bu site sadece sana özel 💖</h2>
+    <input type="password" id="sifreInput" placeholder="Şifreyi gir">
+    <button onclick="kontrolEt()">Giriş Yap</button>
+    <p id="hata"></p>
+  </div>
+
+  <!-- İçerik -->
+  <div id="icerik">
+    <h1>Eşim, Sen Benim En Değerli Hazinemsin</h1>
+    <p>Seninle her anı daha güzel ve anlamlı kılmak istiyorum. Bu site, sana olan sevgimin sadece bir yansıması. Seninle her anı paylaşmak, seninle her anı yaşamak… 💖</p>
+
+    <!-- Müzik Butonu -->
+    <button id="muzikButon" onclick="playPauseMusic()">Müzik Çal</button>
+    
+    <!-- Müzik -->
+    <audio id="muzik" loop>
+      <source src="muzik.mp3" type="audio/mp3">
+      Tarayıcınız audio elementini desteklemiyor.
+    </audio>
+
+    <div class="galeri">
+      <!-- 9 fotoğraf kutusu -->
+      <div class="foto-kutu">
+        <img src="foto1.jpg" alt="Aşk 1">
+        <div class="yazi">Birlikte olduğumuz her an çok kıymetli.</div>
+      </div>
+
+      <div class="foto-kutu">
+        <img src="foto2.jpg" alt="Aşk 2">
+        <div class="yazi">Seninle hayat bir başka güzel, hep yanımda ol.</div>
+      </div>
+
+      <div class="foto-kutu">
+        <img src="foto3.jpg" alt="Aşk 3">
+        <div class="yazi">Seninle geçirdiğim her anı ölümsüzleştirmek istiyorum.</div>
+      </div>
+
+      <div class="foto-kutu">
+        <img src="foto4.jpg" alt="Aşk 4">
+        <div class="yazi">Seninle hayat daha parlak, daha renkli.</div>
+      </div>
+
+      <div class="foto-kutu">
+        <img src="foto5.jpg" alt="Aşk 5">
+        <div class="yazi">Birlikte her şey daha kolay, seninle her şey güzel.</div>
+      </div>
+
+      <div class="foto-kutu">
+        <img src="foto6.jpg" alt="Aşk 6">
+        <div class="yazi">Gözlerinde kaybolmak, seninle olmak bir hayalin gerçeğe dönüşmesi.</div>
+      </div>
+
+      <div class="foto-kutu">
+        <img src="foto7.jpg" alt="Aşk 7">
+        <div class="yazi">Her gülüşün, her bakışın beni büyülüyor.</div>
+      </div>
+
+      <div class="foto-kutu">
+        <img src="foto8.jpg" alt="Aşk 8">
+        <div class="yazi">Seninle her an daha anlamlı, seninle her şey daha değerli.</div>
+      </div>
+
+      <div class="foto-kutu">
+        <img src="foto9.jpg" alt="Aşk 9">
+        <div class="yazi">Sen benim sonsuz sevdam, her zaman yanımda ol.</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function kontrolEt() {
+      const dogruSifre = "16";  // Burada şifrenizi yazabilirsiniz
+      const girilen = document.getElementById("sifreInput").value;
+
+      if (girilen === dogruSifre) {
+        document.getElementById("sifreKutu").style.display = "none";
+        document.getElementById("icerik").style.display = "block";
+      } else {
+        document.getElementById("hata").textContent = "Şifre yanlış, tekrar dene 💔";
+      }
+    }
+
+    function playPauseMusic() {
+      var audio = document.getElementById("muzik");
+      var muzikButon = document.getElementById("muzikButon");
+
+      if (audio.paused) {
+        audio.play(); // Müzik çalmaya başlar
+        muzikButon.textContent = "Müzik Duraklat"; // Buton metnini değiştir
+      } else {
+        audio.pause(); // Müzik duraklar
+        muzikButon.textContent = "Müzik Çal"; // Buton metnini değiştir
+      }
+    }
+
+    // Kalp animasyonunu ekleyelim
+    setInterval(() => {
+      const kalp = document.createElement("div");
+      kalp.classList.add("kalp");
+      kalp.textContent = "💖";
+      kalp.style.left = Math.random() * window.innerWidth + "px"; // X pozisyonu rastgele
+      document.body.appendChild(kalp);
+
+      // Kalp animasyonu bitince kaldırma
+      setTimeout(() => {
+        kalp.remove();
+      }, 2000);
+    }, 500); // Her 500ms'de bir kalp ekleniyor
+  </script>
+</body>
+</html>
